@@ -2,4 +2,4 @@ package main
 
 import "time"
 
-var TimeOut time.Duration = 1
+var TimeOut time.Duration = 3

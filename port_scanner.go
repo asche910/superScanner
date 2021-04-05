@@ -5,6 +5,7 @@ import (
 	"net"
 	"os"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -38,10 +39,18 @@ func CheckMultiPort(ip string, from , to int) []int {
 	if to > 65535 {
 		to = 65535
 	}
+	var wg = sync.WaitGroup{}
 	for i := from; i <= to; i += 1 {
-		if CheckPort(ip, i) {
-			arr = append(arr, i)
-		}
+		wg.Add(1)
+		idx := i
+		go func() {
+			defer wg.Done()
+			time.Sleep(10 * time.Millisecond)
+			if CheckPort(ip, idx) {
+				arr = append(arr, idx)
+			}
+		}()
 	}
+	wg.Wait()
 	return arr
 }

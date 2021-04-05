@@ -10,6 +10,6 @@ func main() {
 	//isOpen := CheckPort("google.com", 1)
 	//fmt.Println(isOpen)
 
-	flag := CheckMultiPort("asche.top", 70, 999)
+	flag := CheckMultiPort("asche.top", 20, 3333)
 	fmt.Println(flag)
 }
