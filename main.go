@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
@@ -22,16 +21,4 @@ func main() {
 	RedisTest()
 
 	//time.Sleep(5 * time.Second)
-}
-
-func test()  {
-	fmt.Println("test")
-	go test2()
-	fmt.Println("test done")
-}
-
-func test2()  {
-	fmt.Println("start")
-	time.Sleep(3 * time.Second)
-	fmt.Println("done")
 }
