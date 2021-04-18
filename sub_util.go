@@ -8,7 +8,7 @@ import (
 )
 
 func SubScan(domain string) {
-	cmd := exec.Command("helper/subhelper", "-d",  "asche.top", "-o", "subdomain.txt")
+	cmd := exec.Command("helper/subhelper", "-d",  "asche.top", "-o", "output/subdomain.txt")
 	//cmd := exec.Command("helper\\subhelper")
 
 	var out, stderr bytes.Buffer
