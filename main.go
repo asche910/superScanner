@@ -17,8 +17,9 @@ func main() {
 	//flag := CheckIp("114.115.157.53")
 	//fmt.Println(flag)
 
-	CheckIpRange("114-119.115.157-158.1-20")
+	//CheckIpRange("114-119.115.157-158.1-20")
 
+	RedisTest()
 
 	//time.Sleep(5 * time.Second)
 }
