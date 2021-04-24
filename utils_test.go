@@ -14,3 +14,7 @@ func TestFileToList(t *testing.T) {
 	list := FileToList("output/subdomain_1618751008.txt")
 	fmt.Println(list)
 }
+
+func TestTempTest(t *testing.T) {
+	TempTest()
+}

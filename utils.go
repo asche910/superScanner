@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 )
@@ -33,4 +34,18 @@ func FileToList(name string) []string{
 		res = append(res, scanner.Text())
 	}
 	return res
+}
+
+func TempTest()  {
+	var strs []string
+	strs = append(strs, "111")
+	//append(&strs, "")
+	fmt.Println(strs)
+	funA(&strs)
+	fmt.Println(strs)
+}
+
+func funA(strs *[]string)  {
+	fmt.Println(strs)
+	*strs = append(*strs, "222")
 }
