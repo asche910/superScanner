@@ -45,8 +45,8 @@ func main() {
 	r.GET("/", func(context *gin.Context) {
 		context.HTML(200, "home.html", datas)
 	})
-	r.GET("/timestamp", func(context *gin.Context) {
-		context.HTML(200, "timestamp.html", nil)
+	r.GET("/loading", func(context *gin.Context) {
+		context.HTML(200, "loading.html", nil)
 	})
 	r.GET("/result", ResultController)
 	r.GET("/ipResult", IPResultController)
