@@ -3,15 +3,15 @@ package main
 import (
 	"fmt"
 )
-import 	"github.com/go-redis/redis"
+import "github.com/go-redis/redis"
 
 var redisClient *redis.Client
 
-func init(){
+func init() {
 	redisClient = redis.NewClient(&redis.Options{
-		Addr: RedisHost,
+		Addr:     RedisHost,
 		Password: RedisPASS,
-		DB: 0,
+		DB:       0,
 	})
 }
 
@@ -23,7 +23,7 @@ func RedisGet(key string) string {
 	return redisClient.Get(key).Val()
 }
 
-func RedisPush(key string, val ... string)  {
+func RedisPush(key string, val ...string) {
 	redisClient.RPush(key, val)
 }
 
@@ -35,12 +35,11 @@ func RedisLen(key string) int64 {
 	return redisClient.LLen(key).Val()
 }
 
-
-func RedisPopAll(key string) []string{
+func RedisPopAll(key string) []string {
 	redisLen := RedisLen(key)
 
 	var res []string
-	for i := int(redisLen); i > 0 ; i-- {
+	for i := int(redisLen); i > 0; i-- {
 		temp := RedisPop(key)
 		res = append(res, temp)
 	}
@@ -49,7 +48,6 @@ func RedisPopAll(key string) []string{
 
 func RedisTest() {
 	fmt.Println("Go Redis Tutorial")
-
 
 	key := "IP_LIST"
 	//redisClient.RPush(key, "qqq", "www", "eee")

@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
@@ -47,8 +48,12 @@ func main() {
 	r.GET("/timestamp", func(context *gin.Context) {
 		context.HTML(200, "timestamp.html", nil)
 	})
+	r.GET("/result", ResultController)
+	r.GET("/ipResult", IPResultController)
+	r.GET("/portResult", PortResultController)
+	r.GET("/domainResult", DomainResultController)
 
-	fmt.Println("http://localhost:8080/")
+	fmt.Println("http://localhost:" + strconv.Itoa(ServerPort))
 
 	r.Run(fmt.Sprintf(":%d", ServerPort))
 }

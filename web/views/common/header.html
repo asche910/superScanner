@@ -18,46 +18,29 @@
         <div id="navbarBasicExample" class="navbar-menu ">
             <div class="navbar-end">
 
-                <a class="navbar-item" href="/">
+                <a class="navbar-item white" href="/">
                     首页
                 </a>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        工具
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="/timestamp">
-                            时间戳
-                        </a>
-                        <a class="navbar-item" href="/json">
-                            json格式化
-                        </a>
-                        <hr class="navbar-divider">
+                <a class="navbar-item white ip-scan-cancel">
+                    IP段扫描
+                </a>
 
-                        <a class="navbar-item" href="/paste">
-                            粘贴板
-                        </a>
-                        <a class="navbar-item">
-                            二维码生成器
-                        </a>
-                    </div>
-                </div>
+                <a class="navbar-item white port-scan-cancel">
+                    端口扫描
+                </a>
 
-                <a class="navbar-item">
-                    关于
+                <a class="navbar-item white domain-scan-cancel">
+                    子域名扫描
+                </a>
+
+                <a class="navbar-item white dis-set-cancel">
+                    分布式设置
                 </a>
 
 
                 <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary" onclick="notSupport()">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light" onclick="notSupport()">
-                            Log in
-                        </a>
-                    </div>
+
                 </div>
             </div>
             <!--
@@ -74,6 +57,97 @@
                             </div>
                         </div>-->
         </div>
+
+
+        <div class="ip-scan modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">IP段扫描</p>
+                    <button class="delete ip-scan-cancel" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+
+                    <label>
+                        请输入IP区间段：
+                        <input class="input ip-input" placeholder="114.115.157.1-100">
+                    </label>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success ip-submit">开始扫描</button>
+                    <button class="button ip-scan-cancel">取消</button>
+                </footer>
+            </div>
+        </div>
+
+        <div class="port-scan modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">端口扫描</p>
+                    <button class="delete port-scan-cancel" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+
+                    <label>
+                        请输入IP或域名：
+                        <input class="input port-input-ip" placeholder="114.115.157.55">
+                    </label>
+                    <label>
+                        请输入端口范围：
+                        <input class="input port-input-ports" placeholder="1-200">
+                    </label>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success port-submit">开始扫描</button>
+                    <button class="button port-scan-cancel">取消</button>
+                </footer>
+            </div>
+        </div>
+
+        <div class="domain-scan modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">子域名扫描</p>
+                    <button class="delete domain-scan-cancel" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+
+                    <label>
+                        请输入域名：
+                        <input class="input domain-input" placeholder="asche.top">
+                    </label>
+
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success domain-submit">开始扫描</button>
+                    <button class="button domain-scan-cancel">取消</button>
+                </footer>
+            </div>
+        </div>
+
+        <div class="dis-set modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">分布式设置</p>
+                    <button class="delete dis-set-cancel" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+
+                    <label>
+                        请输入master地址：
+                        <input class="input" placeholder="https://asche.top:8080">
+                    </label>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success">保存</button>
+                    <button class="button dis-set-cancel">取消</button>
+                </footer>
+            </div>
+        </div>
+
     </div>
 </nav>
 

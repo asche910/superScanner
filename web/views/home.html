@@ -6,6 +6,7 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/css/common/common.css">
 
     <script src="../static/js/cdn/jquery.min.js"></script>
     <script src="../static/js/common/common.js"></script>
@@ -37,17 +38,23 @@
 
             <div class="has-text-centered">
 
-                <div style="width: 400px; margin-left: auto; margin-right: auto">
+                <div class="field has-addons" style="width: 400px; margin-left: auto; margin-right: auto">
 
-                    <div class="control has-icons-right">
-                        <input class="input is-primary is-normal" type="text" placeholder="https://example.com"
-                               width="100px">
+                    <div class="control" style="width: 400px">
+                        <input class="input is-primary is-normal home-input" type="text" placeholder="example.com"
+                               width="300px">
 
-                        <span class="icon is-right">
-    <i class="fas fa-check"></i>
-  </span>
                     </div>
 
+                    <div class="control">
+
+                        <a class="button is-info home-submit" >Go</a>
+                        <!--                        <span class="icon is-right " onclick="alert(666)"-->
+                        <!--                              style="background-color: dodgerblue; color: white">-->
+                        <!--                            <i class="fas fa-check home-submit">Go</i>-->
+                        <!--                            <label>Go</label>-->
+                        <!--                        </span>-->
+                    </div>
 
                 </div>
             </div>

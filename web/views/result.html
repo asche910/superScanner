@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuperScanner-超级扫描器</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/css/common/common.css">
+
+    <script src="../static/js/cdn/jquery.min.js"></script>
+    <script src="../static/js/common/common.js"></script>
+</head>
+<style>
+
+    html, body {
+        height: 100%;
+        background-color: #1f222a;
+    }
+
+    div.content-block {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+<body>
+
+<section class="hero  ">
+
+    <div class="hero-head">
+
+        {{ template "header.html" }}
+    </div>
+
+
+    <div class="hero-body ">
+        <div class="container ">
+
+            <div class="content-block notification" style="background-color: #161b22; ">
+
+                <h3 class="title gray" style="color: azure">
+                    <a href="#" style="text-decoration: none;">#</a>
+                    基本信息
+                </h3>
+
+                <div style="margin-left: 30px;">
+
+                    <div class="">
+                        <div class="white" style="width: 200px; display: inline-block">域名</div>
+                        <div class="gray" style="width: auto; display: inline-block">{{ .domain }}</div>
+                    </div>
+
+                    <div class="">
+                        <div class="white" style="width: 200px; display: inline-block">Ip地址</div>
+                        <div class="gray" style="width: auto; display: inline-block">{{ .ip }}</div>
+                    </div>
+
+                    <div class="">
+                        <div class="white" style="width: 200px; display: inline-block">支持Https</div>
+                        <div class="gray" style="width: auto; display: inline-block">
+                            {{ if .https }}
+                            是
+                            {{ else }}
+                            否
+                            {{ end }}
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="content-block notification" style="background-color: #161b22; ">
+
+                <h3 class="title gray" style="color: azure">
+                    <a href="#" style="text-decoration: none;">#</a>
+                    开放端口
+                </h3>
+
+                <div style="margin-left: 30px;">
+
+                    <div class="tags ">
+                        {{ range .ports }}
+                        <span class="tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="content-block notification" style="background-color: #161b22; ">
+
+                <h3 class="title gray" style="color: azure">
+                    <a href="#" style="text-decoration: none;">#</a>
+                    二级域名
+                </h3>
+
+                <div style="margin-left: 30px;">
+
+                    {{ range .domains }}
+                    <div class="gray">{{ . }}</div>
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="hero-foot">
+
+        {{ template "footer.html" }}
+    </div>
+
+</section>
+
+</body>
+</html>

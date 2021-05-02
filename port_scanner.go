@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -52,5 +53,6 @@ func CheckMultiPort(ip string, from , to int) []int {
 		}()
 	}
 	wg.Wait()
+	sort.Ints(arr)
 	return arr
 }

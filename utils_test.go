@@ -16,5 +16,8 @@ func TestFileToList(t *testing.T) {
 }
 
 func TestTempTest(t *testing.T) {
-	TempTest()
+	arr := []string{"11", "22", "11", "33"}
+	duplication := RemoveDuplication(arr)
+	fmt.Println(duplication)
+
 }

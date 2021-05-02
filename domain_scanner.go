@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func SubScan(domain string) {
+func DomainScan(domain string) [] string{
 	fileName := fmt.Sprintf("output/subdomain_%d.txt", time.Now().Unix())
 	cmd := exec.Command("helper/subhelper", "-d",  domain, "-o", fileName)
 
@@ -23,9 +23,10 @@ func SubScan(domain string) {
 	//fmt.Println("output: ", out.String(), stderr.String())
 
 	if CheckFileExists(fileName){
-		ipList := FileToList(fileName)
-		fmt.Println(ipList)
+		domains := FileToList(fileName)
+		return RemoveDuplication(domains)
 	}else{
 		fmt.Println("scan failed!")
+		return nil
 	}
 }
