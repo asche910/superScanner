@@ -26,6 +26,56 @@
     a {
         text-decoration: none;
     }
+
+
+
+    .radar {
+        width: calc(18em + 0em);
+        height: calc(18em + 0em);
+        font-size: 28px;
+        position: relative;
+        background: linear-gradient(
+                90deg,
+                transparent 49.75%,
+                #2ba768 49.75%,
+                transparent 50.25%),
+        linear-gradient(
+                transparent 49.75%,
+                #2ba768 49.75%,
+                transparent 50.25%),
+        repeating-radial-gradient(
+                transparent 0,
+                transparent 0.95em,
+                #015e01 0.95em,
+                darkgreen 1em),
+        linear-gradient(#161b22, #161b22);
+        border-radius: 50%;
+    }
+
+    .radar::before {
+        content: '';
+        position: absolute;
+        width: calc(9em );
+        height: calc(9em);
+        top: 0;
+        left: 0;
+        /*border: 1px solid white;*/
+        background: linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0) 50%,
+                rgba(0, 192, 0, 1) 100%
+        );
+        border-radius: 100% 0 0 0;
+        animation: scaning 5s linear infinite;
+        transform-origin: 100% 100%;
+    }
+
+    @keyframes scaning {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
 </style>
 <body>
 
@@ -36,8 +86,13 @@
         {{ template "header.html" }}
     </div>
 
+    <div class="radar result-loading" style="margin: 100px auto;">
+        <div class="gray" style="margin-left: 7em; margin-top: 8em;">
+            Scanning
+        </div>
+    </div>
 
-    <div class="hero-body ">
+    <div class="hero-body result-content">
         <div class="container ">
 
             <div class="content-block notification" style="background-color: #161b22; ">
@@ -121,5 +176,12 @@
 
 </section>
 
+<script>
+
+    $(document).ready(function() {
+        $(".result-loading").hide();
+        $(".result-content").show();
+    });
+</script>
 </body>
 </html>

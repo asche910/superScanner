@@ -24,6 +24,7 @@ func DomainScan(domain string) [] string{
 
 	if CheckFileExists(fileName){
 		domains := FileToList(fileName)
+		fmt.Println(domains)
 		return RemoveDuplication(domains)
 	}else{
 		fmt.Println("scan failed!")

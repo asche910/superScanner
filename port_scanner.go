@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net"
-	"os"
 	"sort"
 	"strings"
 	"sync"
@@ -18,10 +17,9 @@ func CheckPort(ip string, port int) bool {
 	conn, err := net.DialTimeout("tcp", fmt.Sprintf("%s:%d", ip, port),
 		time.Second * TimeOut)
 	if err != nil {
-		fmt.Println(ip, port, err)
+		//fmt.Println(ip, port, err)
 		if strings.Contains(err.Error(), "too many open files") {
-			fmt.Println("连接数超出系统限制！" + err.Error())
-			os.Exit(1)
+			fmt.Println("超过最大连接数！" + err.Error())
 		}
 		return false
 	}
