@@ -2,8 +2,8 @@
 
 .vscode
 
-superScanner
-superScanner.exe
+#superScanner
+#superScanner.exe
 
 nohup.out
 

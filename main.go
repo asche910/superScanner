@@ -30,20 +30,11 @@ func main() {
 
 
 
-	datas := make(map[string]interface{})
-	datas["name"] = "Asche"
-
-
-	r.POST("/add", func(context *gin.Context) {
-		fmt.Println(context.Keys)
-		fmt.Println(context.Accepted)
-		fmt.Println(context.PostForm("foo"))
-
-		context.JSON(200, "done")
-	})
+	data := make(map[string]interface{})
+	data["name"] = "Asche"
 
 	r.GET("/", func(context *gin.Context) {
-		context.HTML(200, "home.html", datas)
+		context.HTML(200, "home.html", data)
 	})
 	r.GET("/loading", func(context *gin.Context) {
 		context.HTML(200, "loading.html", nil)
@@ -52,6 +43,12 @@ func main() {
 	r.GET("/ipResult", IPResultController)
 	r.GET("/portResult", PortResultController)
 	r.GET("/domainResult", DomainResultController)
+
+	r.GET("/disSet", DisSetController)
+	r.GET("/getAll", GetAllSlaveController)
+	r.GET("/delete", DeleteSalveController)
+	r.POST("/add", AddSlaveController)
+
 
 	fmt.Println("http://localhost:" + strconv.Itoa(ServerPort))
 

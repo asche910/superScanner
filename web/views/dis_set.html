@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuperScanner-超级扫描器</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/css/common/common.css">
+
+    <script src="../static/js/cdn/jquery.min.js"></script>
+    <script src="../static/js/common/common.js"></script>
+</head>
+<style>
+
+    html, body {
+        height: 100%;
+        background-color: #1f222a;
+    }
+
+    div.content-block {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+<body>
+
+<section class="hero  ">
+
+    <div class="hero-head">
+
+        {{ template "header.html" }}
+    </div>
+
+
+    <div class="hero-body ">
+        <div class="container ">
+
+            <div class="content-block notification" style="background-color: #161b22; ">
+
+                <h3 class="title gray" style="color: azure">
+                    <a href="#" style="text-decoration: none;">#</a>
+                    分布式设置
+                </h3>
+
+                <div style="margin-left: 30px;">
+
+                    <label class="white">
+                        请输入Slave地址：
+                    </label>
+
+                    <div class="field has-addons mt-3">
+                        <div class="control" style="width: 300px">
+                            <input class="input input-dis-set" type="text" placeholder="https://example.com:9090">
+                        </div>
+                        <div class="control">
+                            <a class="button is-info dis-set-add">
+                                增加
+                            </a>
+                        </div>
+                    </div>
+
+                    <label class="white">
+                        Slave列表：
+                    </label>
+
+                    <table class="table mt-1" style="background-color: #161b22">
+
+                        <thead>
+                        <tr>
+                            <th>
+                                <label class="gray">
+                                    Slave地址
+                                </label>
+                            </th>
+                            <th>
+                                <label class="gray">
+                                    操作
+                                </label>
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {{ range .slaves }}
+                        <tr>
+                            <td style=" width:100px; ">
+                                <label class="gray">
+                                    {{ .}}
+                                </label>
+                            </td>
+                            <td>
+                                <a class="button dis-set-del is-danger is-small" href="/delete?slaveUrl={{ . }}">删除</a>
+                            </td>
+                        </tr>
+                        {{end}}
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="hero-foot">
+
+        {{ template "footer.html" }}
+    </div>
+
+</section>
+<script>
+
+    $(document).ready(function () {
+        $(".dis-set-add").click(function () {
+            var url = $(".input-dis-set").val();
+            if (url === "") {
+                alert("地址不能为空！");
+            } else {
+                var arr = {};
+                arr['slaveUrl'] = url;
+                $.ajax({
+                    url: "/add",
+                    type: "POST",
+                    data: arr,
+                    success: function (res) {
+                        console.log(res)
+                        location.reload();
+                    }
+                });
+            }
+        })
+
+        $(".dis-set-del").click(function () {
+            var url = $(this).attr("href");
+            console.log(url)
+
+            $.ajax({
+                url: url,
+                success: function (res) {
+                    location.reload()
+                }
+            });
+            return false;
+        })
+    });
+</script>
+</body>
+</html>

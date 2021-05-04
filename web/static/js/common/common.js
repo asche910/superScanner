@@ -31,9 +31,9 @@ $(document).ready(function () {
         $(".domain-scan").toggleClass("is-active");
     });
 
-    $(".dis-set-cancel").click(function () {
-        $(".dis-set").toggleClass("is-active");
-    });
+    // $(".dis-set-cancel").click(function () {
+    //     $(".dis-set").toggleClass("is-active");
+    // });
 
 
     // header submit
