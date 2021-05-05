@@ -43,9 +43,9 @@ func CheckMultiPort(ip string, from , to int) []int {
 	for i := from; i <= to; i += 1 {
 		wg.Add(1)
 		idx := i
+		time.Sleep(2 * time.Millisecond)
 		go func() {
 			defer wg.Done()
-			time.Sleep(1 * time.Millisecond)
 			if CheckPort(ip, idx) {
 				arr = append(arr, idx)
 			}
