@@ -28,6 +28,7 @@ func CheckPort(ip string, port int) bool {
 }
 
 func CheckMultiPort(ip string, from , to int) []int {
+	fmt.Println(ip, from, to)
 	var arr []int
 	if from > to {
 		return arr
@@ -44,7 +45,7 @@ func CheckMultiPort(ip string, from , to int) []int {
 		idx := i
 		go func() {
 			defer wg.Done()
-			time.Sleep(10 * time.Millisecond)
+			time.Sleep(1 * time.Millisecond)
 			if CheckPort(ip, idx) {
 				arr = append(arr, idx)
 			}

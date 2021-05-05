@@ -47,7 +47,7 @@ $(document).ready(function () {
         var ip = $(".port-input-ip").val()
         var ports = $(".port-input-ports").val()
         var strs = ports.split("-")
-        var target = "/portResult?ip=" + ip + "&from=" + strs[0] + " &to=" + strs[1];
+        var target = "/portResult?ip=" + ip + "&from=" + strs[0] + "&to=" + strs[1];
         window.location = "/loading?url=" + encodeURIComponent(target)
     });
 

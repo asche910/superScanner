@@ -3,7 +3,7 @@ package main
 import "time"
 
 var (
-	TimeOut time.Duration = 3
+	TimeOut time.Duration = 1
 
 	ServerPort = 8080
 
